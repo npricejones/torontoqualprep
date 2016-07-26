@@ -1,0 +1,27 @@
+lectures1to4.pdf
+1 - Hydrostatic and virial theorem
+2 - Star formation
+3 - Equation of state
+4 - Simple stellar models
+
+lectures5to9.pdf
+5 - Diffusive energy transport, Ionization/excitation, Opacity
+6 - Convection, Mixing Length Theory
+7 - Completely convective stars and the Hayashi line
+8 - Energy balance: Contraction/expansion and nuclear processes
+9 - Stellar Models
+
+lectures10to13.pdf
+10 - Main Sequence and Brown Dwarfs
+11 - The end of the main sequence
+12 - The various giant branches
+13 - The end of a star's life
+
+lectures14to16.pdf
+14 - Newtonian Cosmology
+15 - Relativistic Cosmology
+16 - Big Bang Nucleosynthesis
+
+lectures17to18.pdf
+17 - Observational Cosmology
+18 - Inflation and the Cosmic Microwave Background
