@@ -40,30 +40,35 @@ while not found:
     # find a random question from the appropriate section
     if section == 1:
         question = np.random.randint(1,20)
+        print section,question
         if (section,question) not in donequestions:
             print 'Do question {0} from the cosmology section'.format(question)
             found = True
 
     if section == 2:
         question = np.random.randint(1,19)
+        print section,question
         if (section,question) not in donequestions:
             print 'Do question {0} from the extragalactic astronomy section'.format(question)
             found = True
 
     if section == 3:
         question = np.random.randint(1,19)
+        print section,question
         if (section,question) not in donequestions:
             print 'Do question {0} from the galactic astronomy section'.format(question)
             found = True
 
     if section == 4:
         question = np.random.randint(1,22)
+        print section,question
         if (section,question) not in donequestions:
             print 'Do question {0} from the stars and planets section'.format(question)
             found = True
 
     if section == 5:
         question = np.random.randint(1,24)
+        print section,question
         if (section,question) not in donequestions:
             print 'Do question {0} from the math and general physics section'.format(question)
             found = True
