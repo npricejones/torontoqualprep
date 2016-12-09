@@ -51,44 +51,51 @@ if sizecheck > 2:
 elif sizecheck == 2:
     donequestions = [(donequestions[0],donequestions[1])]
 
-# Boolean to check if a question not previously done was found
-found=False
+if not check_finished(1,donequestions,maxqs[1]) or check_finished(2,donequestions,maxqs[2]) or check_finished(3,donequestions,maxqs[3]) or check_finished(4,donequestions,maxqs[4]) or check_finished(5,donequestions,maxqs[5]):
 
-while not found:
-    # if no section given, randomly select it
-    section = choose_section(section=section)
+    # Boolean to check if a question not previously done was found
+    found=False
+    while not found:
+        # if no section given, randomly select it
+        section = choose_section(section=section)
 
-    # find a random question from the appropriate section
-    if section == 1:
-        question = np.random.randint(1,maxqs[section])
-        if (section,question) not in donequestions:
-            print 'Do question {0} from the cosmology section'.format(question)
-            found = True
+        # find a random question from the appropriate section
+        if section == 1:
+            question = np.random.randint(1,maxqs[section])
+            if (section,question) not in donequestions:
+                print 'Do question {0} from the cosmology section'.format(question)
+                found = True
 
-    if section == 2:
-        question = np.random.randint(1,maxqs[section])
-        if (section,question) not in donequestions:
-            print 'Do question {0} from the extragalactic astronomy section'.format(question)
-            found = True
+        if section == 2:
+            question = np.random.randint(1,maxqs[section])
+            if (section,question) not in donequestions:
+                print 'Do question {0} from the extragalactic astronomy section'.format(question)
+                found = True
 
-    if section == 3:
-        question = np.random.randint(1,maxqs[section])
-        if (section,question) not in donequestions:
-            print 'Do question {0} from the galactic astronomy section'.format(question)
-            found = True
+        if section == 3:
+            question = np.random.randint(1,maxqs[section])
+            if (section,question) not in donequestions:
+                print 'Do question {0} from the galactic astronomy section'.format(question)
+                found = True
 
-    if section == 4:
-        question = np.random.randint(1,maxqs[section])
-        if (section,question) not in donequestions:
-            print 'Do question {0} from the stars and planets section'.format(question)
-            found = True
+        if section == 4:
+            question = np.random.randint(1,maxqs[section])
+            if (section,question) not in donequestions:
+                print 'Do question {0} from the stars and planets section'.format(question)
+                found = True
 
-    if section == 5:
-        question = np.random.randint(1,maxqs[section])
-        if (section,question) not in donequestions:
-            print 'Do question {0} from the math and general physics section'.format(question)
-            found = True
+        if section == 5:
+            question = np.random.randint(1,maxqs[section])
+            if (section,question) not in donequestions:
+                print 'Do question {0} from the math and general physics section'.format(question)
+                found = True
 
-# update completed_questions with the newly selected question
-with open("completed_questions.txt","a") as donefile:
-    donefile.write('{0} {1}\n'.format(section,question))
+    # update completed_questions with the newly selected question
+    with open("completed_questions.txt","a") as donefile:
+        donefile.write('{0} {1}\n'.format(section,question))
+
+elif check_finished(1,donequestions,maxqs[1]) and check_finished(2,donequestions,maxqs[2]) and check_finished(3,donequestions,maxqs[3]) and check_finished(4,donequestions,maxqs[4]) and check_finished(5,donequestions,maxqs[5]):
+    print "You're done!"
+
+
+
