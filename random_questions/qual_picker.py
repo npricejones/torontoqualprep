@@ -51,7 +51,7 @@ if sizecheck > 2:
 elif sizecheck == 2:
     donequestions = [(donequestions[0],donequestions[1])]
 
-if not check_finished(1,donequestions,maxqs[1]) or check_finished(2,donequestions,maxqs[2]) or check_finished(3,donequestions,maxqs[3]) or check_finished(4,donequestions,maxqs[4]) or check_finished(5,donequestions,maxqs[5]):
+if not check_finished(1,donequestions,maxqs[1]) or not check_finished(2,donequestions,maxqs[2]) or not check_finished(3,donequestions,maxqs[3]) or not check_finished(4,donequestions,maxqs[4]) or not check_finished(5,donequestions,maxqs[5]):
 
     # Boolean to check if a question not previously done was found
     found=False
