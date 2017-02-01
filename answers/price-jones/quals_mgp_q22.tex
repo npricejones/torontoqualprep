@@ -1,0 +1,79 @@
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage[left=2.3cm,top=2.3cm,bottom=2.3cm,right=2.3cm]{geometry}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{amsmath, mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{color}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{chngpage}
+\usepackage{authblk}
+\usepackage{fancyhdr}
+\usepackage{aastex_hack}
+\usepackage{wrapfig}
+
+\pagestyle{fancy}
+
+\makeatletter
+\let\ps@plain\ps@fancy 
+\makeatother
+
+\begin{document}
+
+\section*{Math and General Physics Question 22}
+
+Let's describe our measurements as $\{x_i\}$ with uncertainty $\{\sigma_i\}$.
+
+The mean:
+\begin{eqnarray}
+\bar{x} &=& \frac{1}{N}\sum_i x_i\\
+\bar{x} &=& \frac{\sum_{i=1}^N x_i\sigma_i^{-2}}{\sum_{i=1}^N \sigma_i^{-2}}
+\end{eqnarray}
+
+The median:
+\begin{equation}
+\mathrm{med}(x) = x_{N/2}
+\end{equation}
+
+The standard deviation:
+\begin{equation}
+\sigma_x = \sqrt{\frac{1}{N}\sum_i (x_i-\bar{x})^2}
+\end{equation}
+
+Outliers: can decide these by looking at how many standard deviations away from the mean - 1 away is 68 percent of data, 2 away is 95.5 percent of data, 3 away is 99.7 percent of data. However, this doesn't work if there are many outliers or one that particularly skews the mean. Could use the median as the basis of comparison, but this will still skew if there are too many outliers.
+
+Could also do a Bayesian analysis with a mixture model for outliers. (see Hogg, Bovy and Lang, 2010) Assume data are representative of a true value $b$ and have a flat prior $I$. To your Bayesian model, add $N$ binary integers $q_i$, which are 0 if $x_i$ is an outlier and 1 otherwise. To fully parametrize the outliers, we also need the mean and variance of the outlier distribution, $Y_b, V_b$.
+
+The likelihood for a Gaussian model for outliers becomes:
+
+\begin{eqnarray}
+\mathcal{L} &=& p(\{x_i\}_{i=1}^N|b,\{q_i\}_{i=1}^N, Y_b,V_b|I)\\
+\mathcal{L} &=& \prod_{i=1}^N \left[\frac{1}{\sqrt{2\pi\sigma_{yi}^2}}\mathrm{exp}\left(-\frac{[y_i-b]^2}{2\sigma_{yi}^2}\right)\right]^{q_i}\\
+&\times& \left[\frac{1}{\sqrt{2\pi[V_b+\sigma^2_{yi}]}}\mathrm{exp}\left(-\frac{[y_i-Y_b]^2}{2[V_b+\sigma_{yi}^2]}\right)\right]^{[1-q_i]}
+\end{eqnarray}
+
+If $P_b$ is the prior probability of finding outliers,
+
+\begin{equation}
+p(\{q_i\}^N_{i=1}|P_b,I) = \prod_{i=1}^N[1-P_b]^{q_i}P_b^{[1-q_i]}
+\end{equation}
+
+We then marginalize over unknown quantities, $P_b,Y_b,V_b$:
+
+\begin{equation}
+p(b|\{y_i\}_{i=1}^N,I) = \int d\{q_i\}_{i=1}^N dP_b dY_b dV_b p(b,\{q_i\}_{i=1}^N,P_b,Y_b,V_b,I),
+\end{equation}
+
+where an integral over $d\{q_i\}_{i=1}^N$ means a sum of all $2^N$ possible settings and all other integrals are over their prior support.
+
+This is a lot of computation, so instead use mixture model with likelihood
+
+\begin{eqnarray}
+\mathcal{L} &\propto& \prod_{i=1}^N \left[\frac{1-P_b}{\sqrt{2\pi\sigma_{yi}^2}}\mathrm{exp}\left(-\frac{[y_i-b]^2}{2\sigma_{yi}^2}\right)\right]^{q_i}\\
+&\times& \left[\frac{P_b}{\sqrt{2\pi[V_b+\sigma^2_{yi}]}}\mathrm{exp}\left(-\frac{[y_i-Y_b]^2}{2[V_b+\sigma_{yi}^2]}\right)\right]^{[1-q_i]}
+\end{eqnarray}
+
+Challenges are choosing your priors, but once done you can sample the marginalized posterior probability distribution to find the most likely b value.
+
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage[left=2.3cm,top=2.3cm,bottom=2.3cm,right=2.3cm]{geometry}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{amsmath, mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{color}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{chngpage}
+\usepackage{authblk}
+\usepackage{fancyhdr}
+\usepackage{aastex_hack}
+\usepackage{wrapfig}
+
+\pagestyle{fancy}
+
+\makeatletter
+\let\ps@plain\ps@fancy 
+\makeatother
+
+\begin{document}
+
+\section{Math and General Physics Question 16}
+
+All objects above absolute zero temperature can emit photons - the lower the temperature the higher the wavelenght of those photons. In long wavelength detectors, failing to cool components can lead to incredible background noise that drowns your signal. In contrast, sources of short wavelengths are rare on Earth, so cooling the detectors doesn't appreciably lower your background.
+
+We can show this easily by computing the peak radiation of a blackbody at room temperature (300K). Wien's Law:
+
+\begin{equation}
+\lambda_{\mathrm{max}} = \frac{2900 \mu \mathrm{m} \, \mathrm{K}}{T}
+\end{equation}
+
+gives us that this radiation will peak around 10 microns.
+
+The shape of the blackbody curve is also relevant here. Blackbody curves have long tails that stretch out the high wavelengths, making them highly assymmetrical. Sources that peak below the observing temperature may not drastically increase noise, but peaks at higher temperatures will have tails that do have an affect.
+
+The lack of a corresponding tail towards short wavelengths means this isn't an issue when observing at higher frequency. Consider a peak wavelength of 0.001 $\mu\mathrm{m}$, in the Chandra observing band. Wien's law implies a blackbody temperature of three million kelvin. Obviously cooler objects will still radiate at that wavelength, but terrestrial sources quickly become irrelevant.
+
+\end{document}

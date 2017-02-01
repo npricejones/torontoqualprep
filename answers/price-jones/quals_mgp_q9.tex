@@ -1,0 +1,46 @@
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage[left=2.3cm,top=2.3cm,bottom=2.3cm,right=2.3cm]{geometry}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{amsmath, mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{color}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{chngpage}
+\usepackage{authblk}
+\usepackage{fancyhdr}
+\usepackage{aastex_hack}
+\usepackage{wrapfig}
+
+\pagestyle{fancy}
+
+\makeatletter
+\let\ps@plain\ps@fancy 
+\makeatother
+
+\begin{document}
+
+\section*{Math and General Physics Question 9}
+
+The solar neutrino problem is an issue where in the solar neutrino flux measured by experiments is about a third of the expected value calculated from solar luminosity. The measurement was first done with the Homestake Experiment but has since been confirmed at Kamioka Observatory and the Sudbury Neutrino Observatory.
+
+Neutrinos have very small interaction cross sections (high speeds and low low mass), and are measured indirectly by their interaction with other particles. One common way is to observe their scatter off an electron through Cherenkob radiation. Another is to observe the (known) products when the neutrino is absorbed.
+
+
+We can do this theoretical calculation by noting that the ppI chain produces 2 $\nu_e$ and about $28$ MeV. This means that for every 28 MeV emitted by the Sun, two neutrinos should also be emitted. We can use solar luminosity $L_{\sun}$ to find the neutrino flux $F_{\nu}$
+
+\begin{eqnarray}
+F_{\nu} &=& \frac{2\mathrm{\,\,neutrinos}}{28 \mathrm{\,MeV}}\frac{3.828\times10^{26} \mathrm{J/s}}{4\pi(1\mathrm{AU})^2}\\
+F_{\nu} &=& 6.1\times10^{10} \mathrm{cm/s}
+\end{eqnarray}
+
+We can conver this to solar neutrino units (SNU), which is one integration per $10^{36}$ target atoms per second. Let's do the conversion for the Homestake experiment, which had 600 tons of tetrachloroethylene $\mathrm{C}_2\mathrm{Cl}_4$ ($5.443\times10^8$ g), which has a molar weight of 165.83 g/mol in a 380 $\mathrm{m}^3$ tank. 
+
+From this it should be posible to convert theoretical SNU (about 7.9). The measured amount was 2.6 SNU.
+
+In reality this apparent discrepancy is due to not all neutrinos being electron neutrinos when they are measured on the Earth (even though of course they must be when they are created if we are using the ppI chain as our solar model). Until the Kamioka Observatory experiment, detectors weren't sensitive enough to see muon and tau neutrinos, and it was SNO that was able to distinguish the types and solve the solar neutrino problem.
+
+How can the neutrinos change? They can change flavour through neutrino oscillations, a phenomenon that can occur only if neutrinos have mass. Neutrino's flavour and mass eigenstates are linked, so as the phase of their mass eigenstates vary through travel, their flavours change.
+
+\end{document}

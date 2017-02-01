@@ -1,0 +1,55 @@
+\documentclass[a4paper,11pt]{scrartcl}
+\usepackage[left=2.3cm,top=2.3cm,bottom=2.3cm,right=2.3cm]{geometry}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{amsmath, mathtools}
+\usepackage[normalem]{ulem}
+\usepackage{color}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{chngpage}
+\usepackage{authblk}
+\usepackage{fancyhdr}
+\usepackage{aastex_hack}
+\usepackage{wrapfig}
+
+\pagestyle{fancy}
+
+\makeatletter
+\let\ps@plain\ps@fancy 
+\makeatother
+
+\begin{document}
+
+\section*{Math and General Physics Question 18}
+
+Polarization comes about as a result of oscillations in the electromagnetic field associated with a photon, and by default the polarization is defined as the direction of electric field oscillation. This oscillation is itself an EM wave, variations in the field through space.
+
+Note that all individual photons have a polarization, but we colloquially describe light as polarized when it has a high fraction of photons oscillating in the same direction.
+
+The type of polarization you have depends on the oscillation of the x and y components (relative to the z direction, the direction of propagation) of the electric field and their relative phase. With $E_x$ and $E_y$ perfectly in phase, the polarization can be horizontal ($E_y$=0), vertical ($E_x$=0) or at any relative angle ($E_x\neq0,E_y\neq0$).
+
+\begin{eqnarray}
+E_x &=& a_x(t)cos(\omega_0t-\theta_x(t)),\\
+E_y &=& a_y(t)cos(\omega_0t-\theta_y(t))\\
+\end{eqnarray}
+
+To get a circular polarization, $E_x$ and $E_y$ must be out of phase. For a perfect circle, they are out of phase by $\pm\pi/2$; different phase difference will lead to elliptical polarizations. If $E_y$ is $\pi/2$ behind $E_x$ ($\theta_y-\theta_x = \pi/2$) the direction of oscillation will trace out a circle counterclockwise. If $E_y$ is $\pi/2$ ahead of $E_x$ ($\theta_y-\theta_x = -\pi/2$), the direction of oscillation will trace out a circle clockwise.
+
+\subsection{Stokes Parameters}
+
+The Stokes parameters do not fully describe polarized light but span a range of possible polarizations and are easy to calculate
+
+\begin{itemize}
+    \item $I = \langle a_x^2\rangle + \langle a_y^2 \rangle$, intensity
+    \item $Q = \langle a_x^2\rangle - \langle a_y^2 \rangle$, polarization along x ($Q>0$) or y ($Q < 0$)
+    \item $U = \langle 2a_x a_y \cos(\theta_x-\theta_y)\rangle$ polarization at $\pm \pi/4$
+    \item $V = \langle 2a_x a_y \sin(\theta_x-\theta_y)\rangle$,circular polarization
+\end{itemize}
+
+
+\subsection{Cosmological polarization}
+
+In cosmology, polarization is usually measured in terms of E- and B-modes. These modes are named for being curl-free (E), or divergence-free (B). Both are primoridial, but E-modes can be converted to B-modes through gravitational lensing. Since E-modes are much stronger than B-modes, this has made detecting primoridial of B-mdoes difficult, but tantalizing for its possible probing of inflation.
+
+\end{document}
